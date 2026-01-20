@@ -1,0 +1,1 @@
+build_shared_library(ImgAlgo ${OpenCV_LIBS})
