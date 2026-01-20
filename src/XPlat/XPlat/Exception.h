@@ -1,7 +1,6 @@
 #ifndef __XPLAT_EXCEPTION_H__
 #define __XPLAT_EXCEPTION_H__
 
-#include <exception>
 #include <xplat/Traits.h>
 
 namespace xplat 
