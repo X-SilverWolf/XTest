@@ -1,0 +1,18 @@
+# set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c17")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(PROJ_SRC_DIR ${PROJ_ROOT_DIR}/src)
+set(PROJ_TRD_DIR ${PROJ_ROOT_DIR}/thirdParty)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+option(XTEST_BUILD_SHARED_LIBS "Build as shared libraries" ON)
+option(XTEST_ENABLE_LARGEFILE "Enable large file support" ON)
+option(XTEST_ENABLE_LOGGING "Enable logging system" ON)
+
+include("${CMAKE_CURRENT_LIST_DIR}/StdEnvConfig.cmake")

@@ -1,0 +1,73 @@
+
+macro(XM_Project_Env_Config PROJ_NAME)
+
+set(${PROJ_NAME}_ROOT_DIR ${PROJ_NAME}_DIR)
+# System Choice
+if(CMAKE_SYSTEM_NAME MATCHES "Windows")
+    add_definitions(-DX_WINDOWS)
+    set(${PROJ_NAME}_SYSTEM_TYPE "Win")
+elseif (CMAKE_SYSTEM_NAME MATCHES "Linux")
+    add_definitions(-DX_LINUX)
+    set(${PROJ_NAME}_SYSTEM_TYPE "Linux")
+elseif (CMAKE_SYSTEM_NAME MATCHES "Darwin")
+    add_definitions(-DX_MACOS)
+    set(${PROJ_NAME}_SYSTEM_TYPE "MacOS")
+else()
+    message(FATAL_ERROR "Unsupported platform: ${CMAKE_SYSTEM_NAME}")
+endif ()
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    set(${PROJ_NAME}_COMPILER_TYPE "MSVC")
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    set(${PROJ_NAME}_COMPILER_TYPE "GCC")
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    set(${PROJ_NAME}_COMPILER_TYPE "Clang")
+else()
+    message(FATAL_ERROR "Unsupported compiler: ${CMAKE_CXX_COMPILER_ID}")
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL Debug)
+    set(${PROJ_NAME}_BUILD_TYPE "Debug")
+    add_definitions(-DPALT_DEBUG)
+else ()
+    set(${PROJ_NAME}_BUILD_TYPE "Release")
+endif()
+
+set(PROJ_ROOT_DIR ${${PROJ_NAME}_ROOT_DIR})
+set(PROJ_SYSTEM_TYPE ${${PROJ_NAME}_SYSTEM_TYPE})
+set(PROJ_COMPILER_TYPE ${${PROJ_NAME}_COMPILER_TYPE})
+set(PROJ_BUILD_TYPE ${${PROJ_NAME}_BUILD_TYPE})
+
+set(${PROJ_NAME}_OUTPUT_DIR "${${PROJ_NAME}_ROOT_DIR}/build/build-${${PROJ_NAME}_SYSTEM_TYPE}-${${PROJ_NAME}_COMPILER_TYPE}-${${PROJ_NAME}_BUILD_TYPE}")
+set(PROJ_OUTPUT_DIR ${${PROJ_NAME}_OUTPUT_DIR})
+
+if(${PROJ_SYSTEM_TYPE} STREQUAL "Win")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_CRT_SECURE_NO_WARNINGS")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_CRT_SECURE_NO_WARNINGS")
+else()
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -rdynamic")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -rdynamic")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+endif ()
+
+set(${PROJ_NAME}_BIN_DIR "${${PROJ_NAME}_OUTPUT_DIR}/bin")
+set(${PROJ_NAME}_PLUGIN_DIR "${${PROJ_NAME}_OUTPUT_DIR}/lib/plugins")
+
+if(${PROJ_SYSTEM_TYPE} STREQUAL "Win")
+    set(${PROJ_NAME}_LIB_DIR "${${PROJ_NAME}_OUTPUT_DIR}/bin")
+else()
+    set(${PROJ_NAME}_LIB_DIR "${${PROJ_NAME}_OUTPUT_DIR}/lib")
+endif()
+
+set(PROJ_BIN_DIR ${${PROJ_NAME}_BIN_DIR})
+set(PROJ_LIB_DIR ${${PROJ_NAME}_LIB_DIR})
+set(PROJ_PLUGIN_DIR ${${PROJ_NAME}_PLUGIN_DIR})
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJ_BIN_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJ_LIB_DIR}")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJ_LIB_DIR}")
+
+endmacro()
+
+XM_Project_Env_Config(${PROJECT_NAME})
