@@ -18,6 +18,11 @@ if(NOT X_SIGNER)
   include(cmake/ManageThirdPartyLibrary.cmake)
 endif()
 
+set(GTEST_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/x64/GTest")
+list(APPEND CMAKE_PREFIX_PATH ${GTEST_DIR})
+find_package(GTest REQUIRED)
+
+add_subdirectory(TBasic)
 add_subdirectory(TRunTime)
 
 #这是AddressSanitizer（ASan）的一部分，用于检测内存泄漏。
