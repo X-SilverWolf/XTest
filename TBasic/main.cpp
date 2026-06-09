@@ -9,7 +9,7 @@
 #include <iostream>
 
 int main() {
-    xbasic::XLogTime st(std::chrono::system_clock::now());
+    xbasic::xlog::XLogTime st(std::chrono::system_clock::now());
     std::cout <<  st.year() + 1900 << '/' << st.month() + 1 << '/' << st.day()
     << ' ' << st.hour()  << ':' << st.min() << ':' << st.sec() << std::endl;
 
