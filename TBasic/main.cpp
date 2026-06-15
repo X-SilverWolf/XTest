@@ -1,17 +1,15 @@
-//
-// Created by XSilver on 2026/5/26.
-//
-#include <iostream>
-#include <thread>
+#include "XBasic/XLog.h"
 
-#include "XBasic/XLog/XLogTime.h"
-#include <chrono>
-#include <iostream>
+int main(int argc, char** argv) {
 
-int main() {
-    xbasic::xlog::XLogTime st(std::chrono::system_clock::now());
-    std::cout <<  st.year() + 1900 << '/' << st.month() + 1 << '/' << st.day()
-    << ' ' << st.hour()  << ':' << st.min() << ':' << st.sec() << std::endl;
+    xbasic::xlog::InitLogging(argv[0]);
+    LOG(INFO) << "111111111111111111111111111111111111111111111\n";
+    for (int i = 0; i < 10; ++i) {
+
+        LOG_EVERY_N(INFO, 5) << i;
+        LOG_EVERY_T(INFO, 5) << i;
+    }
+
 
     return 0;
 }
