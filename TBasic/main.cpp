@@ -6,7 +6,7 @@
 int main(int argc, char** argv) {
 
     xbasic::xlog::InitLogging(argv[0]);
-    xbasic::xlog::XFlags_log_dir = "../log/";
+    xbasic::xlog::XFlags_log_dir = std::string("../log");
     xbasic::xlog::XFlags_log_to_stdout = false;
     xbasic::xlog::XFlags_log_to_stderr = false;
     //xbasic::xlog::SetLogDestination(xbasic::xlog::XLOG_INFO, "../log/log");
