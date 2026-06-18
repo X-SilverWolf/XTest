@@ -1,4 +1,3 @@
-#include "XBasic/Log.h"
 #include "XBasic/XLog.h"
 #include "XBasic/XLog/XLogFlags.h"
 #include "XBasic/XLog/XLogExport.h"
