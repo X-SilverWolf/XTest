@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-
 // #include "logTest.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -32,8 +31,14 @@ const char *fragmentShaderSource = "#version 330 core\n"
                                    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
                                    "}\n\0";
 
-int main()
+int main(int argc, char** argv)
 {
+    ::testing::InitGoogleTest(&argc, argv);
+    int result = RUN_ALL_TESTS();
+    if (result != 0) {
+        return result;
+    }
+
     test_cuda();
     // glfw: initialize and configure
     glfwInit();
