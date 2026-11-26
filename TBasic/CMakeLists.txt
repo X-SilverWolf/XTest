@@ -1,2 +1,10 @@
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+    cmake_minimum_required(VERSION 3.28)
+    project(TBasic VERSION 1.0.0 LANGUAGES C CXX)
+    include("${CMAKE_CURRENT_LIST_DIR}/cmake/Standalone.cmake")
+    x_enable_business_releases()
+    include("${CMAKE_CURRENT_LIST_DIR}/cmake/Dependencies.cmake")
+endif()
 
-build_ut(TBasic XBasic)
+add_executable(TBasic "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
+target_link_libraries(TBasic PRIVATE X::XGui)

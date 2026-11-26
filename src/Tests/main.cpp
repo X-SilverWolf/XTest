@@ -1,10 +1,5 @@
 #include <gtest/gtest.h>
-// #include "logTest.h"
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
-
-#include <glad/glad.h>
+#include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
@@ -58,7 +53,7 @@ int main(int argc, char** argv)
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     // glad: load all OpenGL function pointers
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    if (!gladLoadGL(glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;

@@ -1,1 +1,12 @@
-build_shared_library(LibTest)
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+    cmake_minimum_required(VERSION 3.28)
+    project(LibTest VERSION 1.0.0 LANGUAGES CXX)
+    include("${CMAKE_CURRENT_LIST_DIR}/cmake/Standalone.cmake")
+    x_enable_business_releases()
+endif()
+
+add_library(LibTest SHARED "${CMAKE_CURRENT_SOURCE_DIR}/Base.cpp")
+add_library(X::LibTest ALIAS LibTest)
+target_include_directories(LibTest PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>")
+target_compile_features(LibTest PUBLIC cxx_std_23)
+target_compile_definitions(LibTest PRIVATE TEST_BUILD_DLL)

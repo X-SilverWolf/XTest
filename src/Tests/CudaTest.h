@@ -4,11 +4,12 @@
 #include <cuda_runtime.h>
 #include <iostream>
 
-// Kernel definition
+#ifdef __CUDACC__
 __global__ void test_cuda_kernel()
 {
 
 }
+#endif
 
 void test_cuda()
 {

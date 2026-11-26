@@ -5,7 +5,7 @@
 #ifndef IMGALGO_BASE_H
 #define IMGALGO_BASE_H
 
-#ifdef PLAT_LINUX
+#if !defined(_WIN32)
 
     #ifdef IMGALGO_BUILD_DLL
         #define IMGALGO_API __attribute__((visibility("default")))

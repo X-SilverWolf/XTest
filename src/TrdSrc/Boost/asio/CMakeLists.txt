@@ -1,1 +1,0 @@
-build_shared_library(Asio)

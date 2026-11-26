@@ -5,8 +5,7 @@
 #ifndef XVISION_BASE_H
 #define XVISION_BASE_H
 
-#ifdef PLAT_LINUX
-// Linux 平台
+#if !defined(_WIN32)
     #ifdef TEST_BUILD_DLL
         #define TEST_API __attribute__((visibility("default")))
     #else
@@ -14,16 +13,15 @@
     #endif
     #define TEST_CALL
 #else
-// Windows 平台
-#ifdef DMAI_API_SHARED
+#if defined(TEST_BUILD_DLL) || defined(DMAI_API_SHARED)
 #define TEST_API __declspec(dllexport)
 #else
 #define TEST_API __declspec(dllimport)
 #endif
-#define TEST_CALL __stdcall  // Windows调用约定
+#define TEST_CALL __stdcall
 #endif
 
-// 兼容C和C++
+// Expose the same entry point to C and C++ callers.
 #ifdef __cplusplus
 extern "C" {
 #endif

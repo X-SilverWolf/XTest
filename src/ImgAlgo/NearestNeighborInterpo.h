@@ -2,7 +2,7 @@
 #define IMGALOG_NEAREST_NEIGHBOR_INTERPOLATION_H
 
 #include "Base.h"
-#include <opencv2/opencv.hpp>
+#include <opencv2/core/mat.hpp>
 
 namespace imgalgo
 {
