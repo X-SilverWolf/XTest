@@ -1,3 +1,31 @@
+/**
+ *------------------------------------------------------------------------------
+ * @file        CudaTest
+ * @brief       Reports CUDA runtime and device information for the test program.
+ * @details     Queries the runtime version and lists device names and compute capabilities,
+ *              including API errors.
+ *
+ * @author      XSilver
+ * @date        2026/1/9
+ * @version     V1.0.0
+ *
+ * @copyright   Copyright (c) 2026 [XSilverWolf]
+ *              This project is licensed under the MIT License.
+ *              See the LICENSE file in the project root for license information.
+ *              SPDX-License-Identifier: MIT
+ *
+ * ------------------------------------------------------------------------------
+ *  REVISION HISTORY (Modify)
+ * ------------------------------------------------------------------------------
+ *  [81761c6] - 2026/1/9 by 骇客速成计划
+ *    - Added CUDA runtime and device enumeration diagnostics.
+ *  [1703129] - 2026/11/26 by 骇客速成计划
+ *    - Guarded the example kernel so host C++ compilers can include the header.
+ *  [V1.0.0] - 2026/11/26 by XSilver
+ *    - Recorded the MIT license adopted by the project.
+ * ------------------------------------------------------------------------------
+ */
+
 #ifndef CUDA_TEST_H
 #define CUDA_TEST_H
 

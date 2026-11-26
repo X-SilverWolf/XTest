@@ -1,3 +1,37 @@
+/**
+ *------------------------------------------------------------------------------
+ * @file        main
+ * @brief       Runs the test suite and the CUDA/OpenGL graphics example.
+ * @details     Sets up a GLFW context and renders a shader-driven triangle using the GLAD
+ *              loader.
+ *
+ * @author      XSilver
+ * @date        2026/1/9
+ * @version     V1.0.0
+ *
+ * @copyright   Copyright (c) 2026 [XSilverWolf]
+ *              XTest's test integration is covered by the MIT license in the project root.
+ *              The OpenGL demonstration adapts Hello Triangle by Joey de Vries
+ *              (@JoeyDeVriez), copyright Joey de Vries, LearnOpenGL.
+ *              https://learnopengl.com/Getting-started/Hello-Triangle
+ *              https://twitter.com/JoeyDeVriez
+ *              The sample uses CC BY-NC 4.0 or later under the author's terms.
+ *              https://creativecommons.org/licenses/by-nc/4.0/
+ *              XTest added CUDA/GoogleTest startup, annotations and GLAD loader changes.
+ *              SPDX-License-Identifier: MIT AND CC-BY-NC-4.0
+ *
+ * ------------------------------------------------------------------------------
+ *  REVISION HISTORY (Modify)
+ * ------------------------------------------------------------------------------
+ *  [81761c6] - 2026/1/9 by 骇客速成计划
+ *    - Added the test executable and the OpenGL triangle example.
+ *  [1703129] - 2026/11/26 by 骇客速成计划
+ *    - Updated the GLAD header and loader call for the workspace OpenGL target.
+ *  [V1.0.0] - 2026/11/26 by XSilver
+ *    - Distinguished XTest's MIT-licensed contributions from the attributed tutorial.
+ * ------------------------------------------------------------------------------
+ */
+
 #include <gtest/gtest.h>
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>

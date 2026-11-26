@@ -1,6 +1,28 @@
-//
-// Created by 76426 on 2025/11/10.
-//
+/**
+ *------------------------------------------------------------------------------
+ * @file        LoggerDefines
+ * @brief       Defines logging configuration types for the logging-system prototype.
+ * @details     Describes severity, target masks, rolling policies and sink settings shared by
+ *              the logger API.
+ *
+ * @author      76426
+ * @date        2025/11/10
+ * @version     V1.0.0
+ *
+ * @copyright   Copyright (c) 2026 [XSilverWolf]
+ *              This project is licensed under the MIT License.
+ *              See the LICENSE file in the project root for license information.
+ *              SPDX-License-Identifier: MIT
+ *
+ * ------------------------------------------------------------------------------
+ *  REVISION HISTORY (Modify)
+ * ------------------------------------------------------------------------------
+ *  [81761c6] - 2026/1/9 by 骇客速成计划
+ *    - Added severity, destination and file-rotation configuration types.
+ *  [V1.0.0] - 2026/11/26 by XSilver
+ *    - Recorded the MIT license adopted by the project.
+ * ------------------------------------------------------------------------------
+ */
 
 #ifndef XTEST_LOGGER_DEFINES_H
 #define XTEST_LOGGER_DEFINES_H

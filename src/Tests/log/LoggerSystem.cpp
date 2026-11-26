@@ -1,6 +1,28 @@
-//
-// Created by 76426 on 2025/11/12.
-//
+/**
+ *------------------------------------------------------------------------------
+ * @file        LoggerSystem
+ * @brief       Builds and manages the logging prototype's sinks and module loggers.
+ * @details     Applies runtime configuration, creates file and console sinks, and manages
+ *              per-module log levels.
+ *
+ * @author      76426
+ * @date        2025/11/12
+ * @version     V1.0.0
+ *
+ * @copyright   Copyright (c) 2026 [XSilverWolf]
+ *              This project is licensed under the MIT License.
+ *              See the LICENSE file in the project root for license information.
+ *              SPDX-License-Identifier: MIT
+ *
+ * ------------------------------------------------------------------------------
+ *  REVISION HISTORY (Modify)
+ * ------------------------------------------------------------------------------
+ *  [81761c6] - 2026/1/9 by 骇客速成计划
+ *    - Implemented logger setup, module registration, flushing and shutdown.
+ *  [V1.0.0] - 2026/11/26 by XSilver
+ *    - Recorded the MIT license adopted by the project.
+ * ------------------------------------------------------------------------------
+ */
 
 #include "LoggerSystem.h"
 #include <filesystem>

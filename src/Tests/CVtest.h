@@ -1,6 +1,28 @@
-//
-// Created by 76426 on 2025/12/14.
-//
+/**
+ *------------------------------------------------------------------------------
+ * @file        CVtest
+ * @brief       Demonstrates OpenCV core matrix and numeric operations.
+ * @details     Prints matrix examples, times an exponentiation and reports OpenCV build
+ *              information.
+ *
+ * @author      76426
+ * @date        2025/12/14
+ * @version     V1.0.0
+ *
+ * @copyright   Copyright (c) 2026 [XSilverWolf]
+ *              This project is licensed under the MIT License.
+ *              See the LICENSE file in the project root for license information.
+ *              SPDX-License-Identifier: MIT
+ *
+ * ------------------------------------------------------------------------------
+ *  REVISION HISTORY (Modify)
+ * ------------------------------------------------------------------------------
+ *  [81761c6] - 2026/1/9 by 骇客速成计划
+ *    - Added the OpenCV core diagnostics and matrix examples.
+ *  [V1.0.0] - 2026/11/26 by XSilver
+ *    - Recorded the MIT license adopted by the project.
+ * ------------------------------------------------------------------------------
+ */
 
 #ifndef XTEST_CVTEST_H
 #define XTEST_CVTEST_H
