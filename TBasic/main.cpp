@@ -23,12 +23,18 @@
  *    - Switched window includes to XGui and derived the log path from the working directory.
  *  [V1.0.0] - 2026/11/26 by XSilver
  *    - Recorded the MIT license adopted by the project.
+ *    - Use XBasic's deployed log directory and honor explicit logging overrides.
+ *  [V1.0.0] - 2026/11/27 by XSilver
+ *    - Validate the deployed logging settings before opening the test window.
  * ------------------------------------------------------------------------------
  */
 
-#include <filesystem>
-
 #include "XBasic/XLog.h"
+#if __has_include("XBasic/XLog/LogOptions.h")
+#include <iostream>
+#include "XBasic/Config/Config.h"
+#include "XBasic/XLog/LogOptions.h"
+#endif
 #include "XGui/App/AppBase.h"
 #include "XGui/App/GLWindow.h"
 #include "XGui/App/MainLoop.h"
@@ -37,8 +43,24 @@
 
 int main(int argc, char** argv) {
 
+#if __has_include("XBasic/XLog/LogOptions.h")
+    xbasic::xlog::LogOptions options;
+    xbasic::ConfigError configError;
+    if (!options.loadDefault(configError))
+    {
+        std::cerr << configError.describe() << '\n';
+        return 1;
+    }
+    std::error_code error;
+    if (!xbasic::xlog::InitLogging(argv[0], options, error))
+    {
+        std::cerr << "Could not initialize logging: " << error.message() << '\n';
+        return 1;
+    }
+#else
+    // Standalone builds may still use a published SDK that predates LogOptions.
     xbasic::xlog::InitLogging(argv[0]);
-    xbasic::xlog::XFlags_log_dir = (std::filesystem::current_path() / "Log").string();
+#endif
     xbasic::GLWindowSettings settings;
     settings.setSize(1024, 768);
     settings.windowMode = xbasic::eWindowMode_Window;

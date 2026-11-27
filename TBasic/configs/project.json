@@ -1,0 +1,13 @@
+{
+    "project": {
+        "name": "TBasic"
+    },
+    "log": {
+        "level": "info",
+        "directory": "log"
+    },
+    "paths": {
+        "data": "data",
+        "assets": "assets"
+    }
+}
