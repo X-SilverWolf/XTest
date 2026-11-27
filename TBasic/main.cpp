@@ -30,6 +30,8 @@
  */
 
 #include "XBasic/XLog.h"
+#include "XBasic/Base/XFileTypes.h"
+#include "XBasic/Base/XMemoryTypes.h"
 #if __has_include("XBasic/XLog/LogOptions.h")
 #include <iostream>
 #include "XBasic/Config/Config.h"
@@ -51,7 +53,7 @@ int main(int argc, char** argv) {
         std::cerr << configError.describe() << '\n';
         return 1;
     }
-    std::error_code error;
+    xbasic::xerror_code error;
     if (!xbasic::xlog::InitLogging(argv[0], options, error))
     {
         std::cerr << "Could not initialize logging: " << error.message() << '\n';
@@ -61,12 +63,12 @@ int main(int argc, char** argv) {
     // Standalone builds may still use a published SDK that predates LogOptions.
     xbasic::xlog::InitLogging(argv[0]);
 #endif
-    xbasic::GLWindowSettings settings;
+    xgui::GLWindowSettings settings;
     settings.setSize(1024, 768);
-    settings.windowMode = xbasic::eWindowMode_Window;
-    std::shared_ptr<xbasic::MainLoop> mainLoop = std::shared_ptr<xbasic::MainLoop>(new xbasic::MainLoop);
+    settings.windowMode = xgui::eWindowMode_Window;
+    xbasic::xshared_ptr<xgui::MainLoop> mainLoop = xbasic::xshared_ptr<xgui::MainLoop>(new xgui::MainLoop);
     auto window = mainLoop->createWindow(settings);
-    mainLoop->run(window, std::make_shared<xbasic::AppBase>());
+    mainLoop->run(window, std::make_shared<xgui::AppBase>());
     mainLoop->loop();
     xbasic::xlog::ShutdownLogging();
 

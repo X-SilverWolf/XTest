@@ -29,7 +29,7 @@
 #include "XRunTime/BuildTool.h"
 
 int main() {
-  xRunTime::BuildTool build_tool;
+  xruntime::BuildTool build_tool;
   build_tool.Init();
   return 0;
 }

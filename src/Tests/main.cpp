@@ -32,7 +32,7 @@
  * ------------------------------------------------------------------------------
  */
 
-#include <gtest/gtest.h>
+#include "XTestSupport/GoogleTest.h"
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
@@ -62,7 +62,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
 
 int main(int argc, char** argv)
 {
-    ::testing::InitGoogleTest(&argc, argv);
+    xtest::InitGoogleTest(&argc, argv);
     int result = RUN_ALL_TESTS();
     if (result != 0) {
         return result;

@@ -1,1 +1,1 @@
-x_require_release(intern XRunTime 1.0.0)
+x_require_release(intern XRunTime 2.0.0)

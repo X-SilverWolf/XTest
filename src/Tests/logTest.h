@@ -26,11 +26,11 @@
 
 #ifndef XTEST_LOGTEST_H
 #define XTEST_LOGTEST_H
-#include <gtest/gtest.h>
+#include "XTestSupport/GoogleTest.h"
 #include "log/log.h"
 #include "XPlat/File/File.h"
 
-class LogTest : public ::testing::Test {
+class LogTest : public xtest::Test {
 protected:
     // You can remove any or all of the following functions if their bodies would
     // be empty.

@@ -27,10 +27,10 @@
 #ifndef XPLAT_GEN_TEST_H
 #define XPLAT_GEN_TEST_H
 
-#include <gtest/gtest.h>
+#include "XTestSupport/GoogleTest.h"
 #include "XPlat/Gen/Core.h"
 
-class XPlatGenTest : public ::testing::Test 
+class XPlatGenTest : public xtest::Test 
 {
 public:
     XPlatGenTest() {
